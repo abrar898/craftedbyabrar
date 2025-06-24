@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #3b82f6;
+  --secondary: #a855f7;
+  --accent: #10b981;
 }
 
 @theme inline {
@@ -12,15 +15,69 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  /* Adding standard and vendor prefixes for better compatibility */
+  /* scroll-behavior: smooth; */
+  -webkit-scroll-behavior: smooth;
+  -moz-scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hide cursor on elements with custom cursor */
+@media (min-width: 768px) {
+  .hoverable {
+    cursor: none;
+  }
+  a, button {
+    cursor: none;
+  }
+}
+
+/* Scrollbar styling - Webkit (Chrome, Safari, newer Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* 
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--secondary), var(--primary));
+} */
+
+/* Firefox scrollbar styling */
+/* * {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) rgba(0, 0, 0, 0.1);
+} */
+
+/* Add animation for particle effects */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Disable particle background on low power mode or when prefers-reduced-motion is enabled */
+@media (prefers-reduced-motion: reduce) {
+  .particle-canvas {
+    display: none;
+  }
 }
