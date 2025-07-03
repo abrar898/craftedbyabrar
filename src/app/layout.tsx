@@ -4,7 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import Footer from "@/components/Footer";
 // Import only components that exist
-// import RateCalculator from '@/components/RateCalculator';
+import RateCalculator from '@/components/RateCalculator';
 // import BlogSection from '@/components/BlogSection';
 // import AnimatedGreeting from '@/components/AnimatedGreeting';
 // import AIDashboard from '@/components/AIDashboard';
